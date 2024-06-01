@@ -1,7 +1,13 @@
 .App {
   text-align: center;
 }
+.container {
+  display: flex; /* Koristimo Flexbox */
+}
 
+.category-filter {
+  flex: 0 0 200px; /* Postavljamo fiksnu širinu kategorije */
+}
 
 
 

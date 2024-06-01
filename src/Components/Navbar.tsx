@@ -6,8 +6,14 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoHome } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 
-const Navbar: React.FC = () => {
-  const [menu, setMenu] = useState("home");
+interface NavbarProps{
+  cartNum: number;
+}
+
+
+const Navbar: React.FC<NavbarProps> = ({cartNum}) => {
+  const [menu, setMenu] = useState("none");
+
 
   return (
     <div className='navbar'>
@@ -47,7 +53,7 @@ const Navbar: React.FC = () => {
           <FaShoppingCart size="35" onClick={() => { setMenu("cart") }}/>
         </Link>
         {menu === "cart" ? <></> : <></>}
-        <div className="nav-cart-count">0</div>
+        <div className="nav-cart-count">{cartNum}</div>
       </div>
     </div>
   );

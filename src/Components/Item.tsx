@@ -5,11 +5,14 @@ import borovnica from '../assets/borovnica.png';
 import maline from '../assets/maline.png';
 import sargarepa from '../assets/sargarepa.png';
 import krompir from '../assets/krompir.png';
+import { FaMinusCircle  , FaPlusCircle } from "react-icons/fa";
+
 interface ItemProps{
   proizvod: Proizvod;
+  onAdd: (id: number) => void;
 }
 
-const Item: React.FC<ItemProps> = ({proizvod}) => {
+const Item: React.FC<ItemProps> = ({proizvod, onAdd}) => {
   return (
     <div className='item'>
       {proizvod.id===1 ? <img  src={borovnica} alt={proizvod.ime} /> : 
@@ -21,6 +24,9 @@ const Item: React.FC<ItemProps> = ({proizvod}) => {
         {proizvod.cena}<br />
         {proizvod.količina}{proizvod.jedinica}
       </div>
+
+      <a  className="btn" onClick={() => onAdd(proizvod.id)}><FaPlusCircle style={{ fontSize: '30px' }} /></a>
+      <a  className="btn" onClick={() => onAdd(proizvod.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
     </div>
   );
 }

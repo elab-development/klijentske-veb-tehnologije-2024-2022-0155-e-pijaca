@@ -8,6 +8,9 @@ import Proizvod from './models/Proizvod';
 import { Product } from './models/Product';
 import Voce from './Components/Voce';
 import Povrce from './Components/Povrce';
+import CategoryFilter from './Components/CategoryFilter';
+import { useEffect, useState } from 'react';
+import Cart from './Components/Cart';
 
 const proizvod: Proizvod[] = [
   new Proizvod(1, 'borovnica', 249.99, 150, 'g'),
@@ -48,23 +51,97 @@ const povrce: Product[]=[
     , 100,'g','mahunasto povrce',199.99)
 ];
 
+const voceCategories=[
+  'bobicasto voce',
+  'jezgrasto voce',
+  'citrus',
+  'kostunicavo voce'
+];
+const povrceCategories = [
+  'mahunasto povrce',
+  'lisnato povrce',
+  'korenasto povrce'
+];
+
+const products: Product[]=[...voce,...povrce];
 
 function App() {
+
+  const [cartNum, setCartNum] = useState(0);
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
+
+  function refreshCart() {
+    const dodajUKorpu: Product[] = products.filter((prod) => prod.kolicina > 0);
+    setCartProducts(dodajUKorpu);
+  }
+
+  function updateCart(product: Product) {
+    setCartProducts([...cartProducts, product]);
+  } 
+
+  
+  const addToCart = (id: number) => {
+    products.forEach((product)=>{
+      if (product.id === id) {
+        product.kolicina = product.kolicina + 1;
+        const a = cartNum + 1;
+        setCartNum(a);
+        if(product.kolicina === 1) {
+          updateCart(product);
+        }
+        else {
+          refreshCart();
+        }
+      }
+    });
+  };
+
+
+  const [selectedVoceCategory, setSelectedVoceCategory] = useState<string>('sve');
+  const [selectedPovrceCategory, setSelectedPovrceCategory] = useState<string>('sve');
+
+  useEffect(() => {
+    return () => {
+      setSelectedVoceCategory('sve');
+      setSelectedPovrceCategory('sve');
+    };
+  }, [setSelectedVoceCategory,setSelectedPovrceCategory]);
+
+  
+
+  const filteredVoce = selectedVoceCategory === 'sve' ? voce : voce.filter(product => product.family === selectedVoceCategory);
+  const filteredPovrce = selectedPovrceCategory === 'sve' ? povrce : povrce.filter(product => product.family === selectedPovrceCategory);
+  
+
   
   return (
     <div>
       <BrowserRouter>
-      <Navbar/>
+      <Navbar cartNum={cartNum}/>
      
       <Routes>
         {
           
           <>
-          <Route path='/' element={<Home proizvod={proizvod}/>} />
-          <Route path='/voce' element={<Voce voce={voce}/>} />
-          <Route path='/povrce' element={<Povrce povrce={povrce}/>} />
+          <Route path='/' element={<Home proizvod={proizvod} products={products} onAdd={addToCart}/>} />
+          <Route path='/voce' element={
+            <div className='container'>
+              <div className="category-filter">
+                <CategoryFilter categories={voceCategories} selectedCategory={selectedVoceCategory} onSelectCategory={setSelectedVoceCategory} />
+              </div>
+              <Voce voce={filteredVoce} onAdd={addToCart}/>
+            </div>} />
+          <Route path='/povrce' element={
+            <div className='container'>
+              <div className="category-filter">
+                <CategoryFilter categories={povrceCategories} selectedCategory={selectedPovrceCategory} onSelectCategory={setSelectedPovrceCategory} />
+              </div>
+              <Povrce povrce={filteredPovrce} onAdd={addToCart}/>
+            </div>} />
           <Route path='/signup' element={<LoginSignup />} />
-          <Route path='/login' element={<Login />} /></>
+          <Route path='/login' element={<Login />} />
+          <Route path='/cart' element={<Cart proizvodi={cartProducts} onAdd={addToCart}/>} />
+          </>
          
           
         }
