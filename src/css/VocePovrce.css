@@ -1,0 +1,10 @@
+.voce-ind, .povrce-ind{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    align-items: center;
+    gap: 10px;
+    height: 90vh;
+    margin-top: 50px;
+    margin-left: 22%;
+}
