@@ -1,16 +1,36 @@
+.individual{
+  text-align: center;
+  padding: 15px;
+  border: 1px solid darkolivegreen;
+  border-radius: 8px;
+  background-color: rgba(186, 227, 187, 0.8);
+  margin-bottom: 25px;
+ 
+}
 .btn {
     padding-top: 10px;
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
     margin: 3px;
-    margin-left: 30px;
-    border-radius: 3px;
-    border-width: 0px;
+    margin-left: 7px;
   }
-.individual-desc{
-    display: flex;
-    margin-left: 60px;
-    align-items: center;
+
+
+.individual p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(40, 84, 27);
+}
+.individual-desc {
     text-align: center;
+    gap: 20px;
+    color: black;
+    padding: 10px 15px;
 }

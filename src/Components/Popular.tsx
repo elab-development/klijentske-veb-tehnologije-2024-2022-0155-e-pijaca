@@ -15,7 +15,9 @@ const Popular: React.FC<PopularProps> = ({proizvod, onAdd}) => {
       <hr />
       <div className="popular-item">
       {proizvod === null ? "No products" : proizvod.map((p) => (
-        <Item proizvod={p} onAdd={() => onAdd(p.id)}/>
+        <Item proizvod={p} 
+        key={p.id}
+        onAdd={() => onAdd(p.id)}/>
       ))}
       </div>
     </div>

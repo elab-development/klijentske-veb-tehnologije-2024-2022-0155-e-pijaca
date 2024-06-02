@@ -1,20 +1,23 @@
-.item , .individual{
+.item {
     text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 15px;
+    border: 1px solid darkolivegreen;
     border-radius: 8px;
-    background-color: #f9f9f9;
-  
-}
-.image {
-    width: 20px; 
-    height: 15px; 
+    background-color: rgba(186, 227, 187, 0.8);
+   
 }
 .item p{
-    margin: 6px 0px;
+    font-size: 20px;
+    font-weight: bold;
 }
-.item-price , .individual-desc {
-    display: flex;
+.item-price  {
+    text-align: center;
     gap: 20px;
     color: darkolivegreen;
+    padding: 15px 15px;
+}
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(40, 84, 27);
 }
