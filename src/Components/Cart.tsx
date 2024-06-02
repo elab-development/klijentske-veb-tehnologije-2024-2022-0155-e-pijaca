@@ -5,9 +5,10 @@ import IndividualP from './IndividualP';
 interface CartProps{
     proizvodi: Product[];
     onAdd: (id: number) => void;
+    onDelete: (id: number) => void;
 }
 
-const Cart: React.FC<CartProps> = ({proizvodi , onAdd}) => {
+const Cart: React.FC<CartProps> = ({proizvodi , onAdd, onDelete}) => {
   return (
     <div>
       {proizvodi.length === 0 ? "Korpa je prazna" : 
@@ -16,6 +17,7 @@ const Cart: React.FC<CartProps> = ({proizvodi , onAdd}) => {
         key={p.id} 
         oneP={p}
         onAdd={() => onAdd(p.id)}
+        onDelete={() => onAdd(p.id)}
          />
       ))}
     </div>

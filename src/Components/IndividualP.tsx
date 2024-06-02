@@ -9,13 +9,14 @@ import { FaMinusCircle  , FaPlusCircle } from "react-icons/fa";
 interface IndividualProps{
     oneP: Product;
     onAdd: (id: number) => void;
+    onDelete: (id: number) => void;
 }
 
 
 const imageStyle = { width: '250px', height: '350px' };
 
 
-const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd}) => {
+const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete}) => {
     return (
       <div>
         <div className='individual'>
@@ -38,7 +39,7 @@ const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd}) => {
        
       </div>
       <a  className="btn" onClick={() => onAdd(oneP.id)}><FaPlusCircle style={{ fontSize: '30px' }} /></a>
-      <a  className="btn" onClick={() => onAdd(oneP.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
+      <a  className="btn" onClick={() => onDelete(oneP.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
     </div>
       </div>
     )

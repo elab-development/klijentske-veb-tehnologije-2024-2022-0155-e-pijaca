@@ -11,13 +11,14 @@ import { FaMinusCircle  , FaPlusCircle } from "react-icons/fa";
 interface ItemProps{
   proizvod: Proizvod;
   onAdd: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
 
 const imageStyle = { width: '250px', height: '350px' };
 
 
-const Item: React.FC<ItemProps> = ({proizvod, onAdd}) => {
+const Item: React.FC<ItemProps> = ({proizvod, onAdd, onDelete}) => {
   return (
     <div className='item'>
       {proizvod.id===1 ? <img  src={borovnica} alt={proizvod.ime} style={imageStyle} /> :
@@ -32,7 +33,7 @@ const Item: React.FC<ItemProps> = ({proizvod, onAdd}) => {
 
 
       <a  className="btn" onClick={() => onAdd(proizvod.id)}><FaPlusCircle style={{ fontSize: '30px' }} /></a>
-      <a  className="btn" onClick={() => onAdd(proizvod.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
+      <a  className="btn" onClick={() => onDelete(proizvod.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
     </div>
   );
 }

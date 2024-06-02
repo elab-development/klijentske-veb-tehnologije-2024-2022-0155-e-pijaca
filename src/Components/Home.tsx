@@ -8,15 +8,16 @@ interface HomeProps{
   proizvod: Proizvod[];
   products: Product[];//za prvu stranicu , katalog
   onAdd: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
 
 
-const Home: React.FC <HomeProps>= ({proizvod , products, onAdd}) => {
+const Home: React.FC <HomeProps>= ({proizvod , products, onAdd, onDelete}) => {
   return (
     <div>
       <Deo1 />
-      <Popular proizvod={proizvod} onAdd={onAdd}/>
+      <Popular proizvod={proizvod} onAdd={onAdd} onDelete={onDelete}/>
 
     </div>
   );

@@ -6,9 +6,10 @@ import '../css/VocePovrce.css';
 interface voceProps{
     voce: Product[];
     onAdd: (id: number) => void;
+    onDelete: (id: number) => void;
 }
 
-const Voce: React.FC<voceProps> = ({voce ,onAdd }) => {
+const Voce: React.FC<voceProps> = ({voce ,onAdd, onDelete }) => {
  
   return (
     
@@ -16,7 +17,8 @@ const Voce: React.FC<voceProps> = ({voce ,onAdd }) => {
         {voce === null ? "Nema proizvoda" : voce.map((v) => (
         <IndividualP key={v.id} 
         oneP={v} 
-        onAdd={() => onAdd(v.id)}/>
+        onAdd={() => onAdd(v.id)}
+        onDelete={() => onDelete(v.id)}/>
          ))}
          
         </div>

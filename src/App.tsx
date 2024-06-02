@@ -76,14 +76,29 @@ function App() {
   }
 
   function updateCart(product: Product) {
+
     setCartProducts([...cartProducts, product]);
   } 
+
+  const deleteFromCart = (id: number) => {
+    products.forEach((product)=>{
+      if (product.id === id  && cartNum>=1) {
+        const a = cartNum - 1;
+        setCartNum(a);
+        if(product.kolicina > 1) {
+          updateCart(product);
+        }
+        else {
+          refreshCart();
+        }
+      }
+    });
+  };
 
   
   const addToCart = (id: number) => {
     products.forEach((product)=>{
       if (product.id === id) {
-        product.kolicina = product.kolicina + 1;
         const a = cartNum + 1;
         setCartNum(a);
         if(product.kolicina === 1) {
@@ -123,24 +138,24 @@ function App() {
         {
           
           <>
-          <Route path='/' element={<Home proizvod={proizvod} products={products} onAdd={addToCart}/>} />
+          <Route path='/' element={<Home proizvod={proizvod} products={products} onAdd={addToCart} onDelete={deleteFromCart}/>} />
           <Route path='/voce' element={
             <div className='container'>
               <div className="category-filter">
                 <CategoryFilter categories={voceCategories} selectedCategory={selectedVoceCategory} onSelectCategory={setSelectedVoceCategory} />
               </div>
-              <Voce voce={filteredVoce} onAdd={addToCart}/>
+              <Voce voce={filteredVoce} onAdd={addToCart} onDelete={deleteFromCart}/>
             </div>} />
           <Route path='/povrce' element={
             <div className='container'>
               <div className="category-filter">
                 <CategoryFilter categories={povrceCategories} selectedCategory={selectedPovrceCategory} onSelectCategory={setSelectedPovrceCategory} />
               </div>
-              <Povrce povrce={filteredPovrce} onAdd={addToCart}/>
+              <Povrce povrce={filteredPovrce} onAdd={addToCart} onDelete={deleteFromCart}/>
             </div>} />
           <Route path='/signup' element={<LoginSignup />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/cart' element={<Cart proizvodi={cartProducts} onAdd={addToCart}/>} />
+          <Route path='/cart' element={<Cart proizvodi={cartProducts} onAdd={addToCart} onDelete={deleteFromCart}/>} />
           </>
          
           
