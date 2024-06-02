@@ -2,11 +2,11 @@
   text-align: center;
 }
 .container {
-  display: flex; /* Koristimo Flexbox */
+  display: flex; 
 }
 
 .category-filter {
-  flex: 0 0 200px; /* Postavljamo fiksnu širinu kategorije */
+  flex: 0 0 200px;
 }
 
 

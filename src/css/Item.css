@@ -4,7 +4,8 @@
     border: 1px solid darkolivegreen;
     border-radius: 8px;
     background-color: rgba(186, 227, 187, 0.8);
-   
+    margin-bottom: 35px;
+    margin-top: -10px;
 }
 .item p{
     font-size: 20px;

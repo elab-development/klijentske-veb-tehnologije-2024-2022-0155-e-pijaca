@@ -5,7 +5,6 @@ import maline from '../assets/maline.png';
 import '../css/IndividualP.css';
 import { FaMinusCircle  , FaPlusCircle } from "react-icons/fa";
 
-
 interface IndividualProps{
     oneP: Product;
     onAdd: (id: number) => void;
@@ -41,9 +40,13 @@ const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete}) => {
       <a  className="btn" onClick={() => onAdd(oneP.id)}><FaPlusCircle style={{ fontSize: '30px' }} /></a>
       <a  className="btn" onClick={() => onDelete(oneP.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
     </div>
+
+
       </div>
     )
   }
+
+
 
 
 export default IndividualP

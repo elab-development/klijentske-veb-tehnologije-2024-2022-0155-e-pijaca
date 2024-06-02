@@ -1,0 +1,30 @@
+.home-container{
+    display: flex;
+    flex-direction:  row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    margin-left: 12%;
+    margin-right: 12%;
+   
+}
+
+.home-text-container h1{
+    font-family: "Bebas Neue";
+    text-align: center;
+    font-size: 50px;
+    margin-top: 10px;
+}
+.home-text-container:hover {
+    
+    background-color: rgba(208, 247, 204, 1);
+    border-radius: 20px;
+}
+.home-text-container p{
+    font-family: "Bitter";
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
