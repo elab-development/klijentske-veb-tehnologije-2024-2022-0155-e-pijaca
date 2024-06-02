@@ -20,6 +20,7 @@ const Cart: React.FC<CartProps> = ({proizvodi , onAdd, onDelete}) => {
         oneP={p}
         onAdd={() => onAdd(p.id)}
         onDelete={() => onDelete(p.id)}
+        hideUnit={true} 
          />
       ))}
     </div>

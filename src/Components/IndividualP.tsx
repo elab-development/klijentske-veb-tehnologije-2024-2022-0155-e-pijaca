@@ -9,13 +9,14 @@ interface IndividualProps{
     oneP: Product;
     onAdd: (id: number) => void;
     onDelete: (id: number) => void;
+    hideUnit?: boolean;
 }
 
 
 const imageStyle = { width: '250px', height: '350px' };
 
 
-const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete}) => {
+const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete,hideUnit}) => {
     return (
       <div>
         <div className='individual'>
@@ -34,7 +35,7 @@ const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete}) => {
       <p>{oneP.ime}</p>
       <div className="individual-desc">
       <span className="price">{oneP.cena}</span><br />
-        {oneP.kolicina}{oneP.jedinica}
+       {oneP.kolicina}{!hideUnit && oneP.jedinica}
        
       </div>
       <a  className="btn" onClick={() => onAdd(oneP.id)}><FaPlusCircle style={{ fontSize: '30px' }} /></a>
