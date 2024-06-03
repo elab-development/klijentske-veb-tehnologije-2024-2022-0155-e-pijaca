@@ -1,14 +1,19 @@
 import { Product } from '../models/Product'
 import IndividualP from './IndividualP';
 import '../css/VocePovrce.css';
+import { useEffect } from 'react';
 interface povrceProps{
     povrce: Product[];
     onAdd: (id: number) => void;
     onDelete: (id: number) => void;
+    resetCategory: () => void;
 }
 
-const Povrce: React.FC<povrceProps> = ({povrce , onAdd, onDelete}) => {
+const Povrce: React.FC<povrceProps> = ({povrce , onAdd, onDelete, resetCategory}) => {
   
+  useEffect(() => {
+    resetCategory();
+  }, []);
   
   return (
     

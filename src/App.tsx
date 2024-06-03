@@ -19,9 +19,12 @@ function App() {
   const [selectedVoceCategory, setSelectedVoceCategory] = useState<string>('sve');
   const [selectedPovrceCategory, setSelectedPovrceCategory] = useState<string>('sve');
 
+  const resetVoceCategory = () => setSelectedVoceCategory('sve');
+  const resetPovrceCategory = () => setSelectedPovrceCategory('sve');
+
   useEffect(() => {
-    setSelectedVoceCategory('sve');
-    setSelectedPovrceCategory('sve');
+    resetVoceCategory();
+    resetPovrceCategory();
   }, []);
 
   const filteredVoce = selectedVoceCategory === 'sve' ? voce : voce.filter(product => product.family === selectedVoceCategory);
@@ -39,14 +42,15 @@ function App() {
                 <div className="category-filter">
                   <CategoryFilter categories={voceCategories} selectedCategory={selectedVoceCategory} onSelectCategory={setSelectedVoceCategory} />
                 </div>
-                <Voce voce={filteredVoce} onAdd={addToCart} onDelete={deleteFromCart} />
+                <Voce voce={filteredVoce} onAdd={addToCart} onDelete={deleteFromCart} resetCategory={resetVoceCategory}/>
+               
               </div>} />
             <Route path='/povrce' element={
               <div className='container'>
                 <div className="category-filter">
                   <CategoryFilter categories={povrceCategories} selectedCategory={selectedPovrceCategory} onSelectCategory={setSelectedPovrceCategory} />
                 </div>
-                <Povrce povrce={filteredPovrce} onAdd={addToCart} onDelete={deleteFromCart} />
+                <Povrce povrce={filteredPovrce} onAdd={addToCart} onDelete={deleteFromCart} resetCategory={resetPovrceCategory} />
               </div>} />
             <Route path='/signup' element={<LoginSignup />} />
             <Route path='/login' element={<Login />} />
