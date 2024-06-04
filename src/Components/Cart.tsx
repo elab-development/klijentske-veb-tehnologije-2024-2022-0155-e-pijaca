@@ -1,6 +1,9 @@
 import React from 'react'
 import { Product } from '../models/Product';
 import IndividualP from './IndividualP';
+import '../css/Cart.css'
+
+
 
 
 interface CartProps{
@@ -10,9 +13,11 @@ interface CartProps{
 }
 
 
+
+
 const Cart: React.FC<CartProps> = ({proizvodi , onAdd, onDelete}) => {
   return (
-    <div>
+    <div className='korpa'>
       {proizvodi.length === 0 ? "Korpa je prazna" :
       proizvodi.map((p) => (
         <IndividualP
@@ -20,7 +25,7 @@ const Cart: React.FC<CartProps> = ({proizvodi , onAdd, onDelete}) => {
         oneP={p}
         onAdd={() => onAdd(p.id)}
         onDelete={() => onDelete(p.id)}
-        hideUnit={true} 
+        hideUnit={true}
          />
       ))}
     </div>
@@ -28,5 +33,6 @@ const Cart: React.FC<CartProps> = ({proizvodi , onAdd, onDelete}) => {
 }
 
 
-export default Cart
 
+
+export default Cart
