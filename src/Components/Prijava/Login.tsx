@@ -9,8 +9,9 @@ const Login: React.FC = () => {
         <div className="loginsignup-fileds">
           <input type="email" placeholder='Email:' />
           <input type="password" placeholder='Sifra:' />
+          <button>Nastavite</button>
         </div>
-        <button>Nastavite</button>
+        
       </div>
     </div>
   );

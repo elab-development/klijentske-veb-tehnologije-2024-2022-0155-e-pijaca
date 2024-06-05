@@ -1,6 +1,6 @@
 import React from 'react'
 import { Recept } from '../models/Recept'
-
+import '../css/Recepti.css'
 
 interface ReceptProps{
     r: Recept;
@@ -8,13 +8,18 @@ interface ReceptProps{
 
 
 const ReceptIndividual : React.FC<ReceptProps> = ({r})=> {
+  const removeHtmlTags = (html: string) => {
+    return html.replace(/<\/?[^>]+(>|$)/g, "");
+  };
+
+
   return (
     <div className="recept">
-        <img src="https://img.spoonacular.com/recipes/987-556x370.jpg" alt="slika" />
-     {r.title}
-     {r.id}
-     {r.instructions}
-       
+        <img src={r.image} alt="slika" className="recept-image" />
+        <div className="recepti-text">
+        <h2>{r.title}</h2>
+        <p>{removeHtmlTags(r.instructions)}</p>
+        </div> 
     </div>
   )
 }

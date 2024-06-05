@@ -11,8 +11,9 @@ const LoginSignup: React.FC = () => {
           <input type="text" placeholder='Ime:' />
           <input type="email" placeholder='Email:' />
           <input type="password" placeholder='Sifra:' />
+          <button>Nastavite</button>
         </div>
-        <button>Nastavite</button>
+        
         <p className='loginsigunp-login'>
           Vec imate nalog?
           <span>
