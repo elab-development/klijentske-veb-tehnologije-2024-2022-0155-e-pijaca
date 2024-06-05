@@ -9,7 +9,7 @@ import '../css/Home.css';
 
 interface HomeProps{
   proizvod: Proizvod[];
-  products: Product[];//za prvu stranicu , katalog
+  products: Product[];
   onAdd: (id: number) => void;
   onDelete: (id: number) => void;
 }

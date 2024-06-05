@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/VocePovrce.css';
 
 interface CategoryFilterProps {
   categories: string[];
