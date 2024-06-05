@@ -18,11 +18,11 @@ interface HomeProps{
 
 
 const Home: React.FC <HomeProps>= ({proizvod , products, onAdd, onDelete}) => {
-  const [visibleProducts, setVisibleProducts] = useState(3);
+  const [visibleProducts, setVisibleProducts] = useState(4);
 
 
   const showMoreProducts = () => {
-    setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 3);
+    setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 4);
   };
 
 
