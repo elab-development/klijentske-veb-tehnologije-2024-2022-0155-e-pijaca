@@ -2,19 +2,11 @@ import React from 'react'
 import { Product } from '../models/Product';
 import IndividualP from './IndividualP';
 import '../css/Cart.css'
-
-
-
-
 interface CartProps{
     proizvodi: Product[];
     onAdd: (id: number) => void;
     onDelete: (id: number) => void;
 }
-
-
-
-
 const Cart: React.FC<CartProps> = ({proizvodi , onAdd, onDelete}) => {
   return (
     <div className='korpa'>

@@ -48,8 +48,8 @@ const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete,hideUnit
        {oneP.kolicina}{!hideUnit && oneP.jedinica}
        
       </div>
-      <a  className="btn" onClick={() => onAdd(oneP.id)}><FaPlusCircle style={{ fontSize: '30px' }} /></a>
-      <a  className="btn" onClick={() => onDelete(oneP.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
+      <a  className="btn" aria-label="plus" onClick={() => onAdd(oneP.id)}><FaPlusCircle style={{ fontSize: '30px' }} /></a>
+      <a  className="btn" aria-label="minus" onClick={() => onDelete(oneP.id)}><FaMinusCircle style={{ fontSize: '30px' }}/></a>
     </div>
 
 
