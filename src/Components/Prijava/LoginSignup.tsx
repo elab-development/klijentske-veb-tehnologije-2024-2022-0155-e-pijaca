@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../css/LoginSignup.css';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import WeatherForecast from '../WeatherForecast';
 
 const LoginSignup: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const LoginSignup: React.FC = () => {
           <input type="password" placeholder='Sifra:' />
           <button>Nastavite</button>
         </div>
-        
+       
         <p className='loginsigunp-login'>
           Vec imate nalog?
           <span>
@@ -27,8 +28,13 @@ const LoginSignup: React.FC = () => {
           <p>Slazem se sa uslovima koriscenja</p>
         </div>
       </div>
+      <div className="prognoza">
+          <WeatherForecast/>
+      </div>
     </div>
   );
 }
 
+
 export default LoginSignup;
+
