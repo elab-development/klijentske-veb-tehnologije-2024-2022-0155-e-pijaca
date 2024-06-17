@@ -7,14 +7,13 @@
   width: 10%;
   max-height: 300px;
   margin-left: 30px;
-  margin-top: 126px;
+  margin-top: 80px;
   text-align: center;
   padding: 10px;
   border: 7px solid #8bb480;
   border-radius: 8px;
   background-color:rgba(186, 227, 187, 0.8);
 }
-
 
 .category-filter li {
   width: 20%;
@@ -56,3 +55,30 @@
 .show-more-btn:hover {
   background-color: #45a049;
 }
+
+.price-filter {
+  width: 80%;
+  max-height: 300px;
+  margin-left: -15px;
+  margin-top: 100px;
+  text-align: center;
+  padding: 30px;
+  border: 7px solid #8bb480;
+  border-radius: 8px;
+  background-color: rgba(186, 227, 187, 0.8);
+}
+
+.price-filter h3 {
+  margin: 0;
+  padding: 0;
+  display: block;
+  margin-bottom: 20px;
+  display: inline;
+}
+
+.price-filter li {
+  width: 70%;
+  margin-top: 15px;
+  list-style-type:  none;
+}
+

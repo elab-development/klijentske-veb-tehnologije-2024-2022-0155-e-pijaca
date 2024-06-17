@@ -20,12 +20,12 @@ export const voce: Product[] = [
   new Product(5, 'Badem', 'Sirovi bademi su dobar izvor vitamina E, kalcijuma, fosfora, gvožđa i magnezijuma. Sadrži i cink, selen, bakar i nijacin. U odnosu na ostale orašaste plodove badem je jedan od najhranljivijih.'
     , 100, 'g', 'jezgrasto voće', 199.99),
   new Product(6, 'Trešnje', 'U Japanu postoji tradicija koja se zove "Hanamija" koja podrazumeva ispijanje sakea (japanske vrste rakije) ispod drveta sakure ili ume, tj. ispod drveta autohtonih vrsta trešanja. Sa ovom tradicijom Japanci su krenuli još 710. godine a poštuju je i danas. '
-    , 500, 'g', 'koštuničavo voće', 199.99)
+    , 100, 'g', 'koštuničavo voće', 59.99)
 ];
 
 export const povrce: Product[] = [
   new Product(7, 'Pasulj', 'Pasulj ili grah je naziv za seme nekoliko biljaka iz porodice mahunarki (Fabaceae). Postoji oko 70 vrsta ovog povrća. To je jednogodišnja zeljasta biljka koja sazreva u jesen. Kao i sve mahunarke, sadrži mnogo belančevina, ali su one fiziološki nepotpune'
-    , 100, 'g', 'mahunasto povrće', 199.99),
+    , 100, 'g', 'mahunasto povrće', 259.99),
   new Product(8, 'Spanać', 'Spanać je na evropsku trpezu dospeo tek u 11. veku, kada su ga Mavari doneli u Španiju. Veruje se da ova biljka potiče iz Persije, a da je u Kinu dospela u 7. veku nakon što je tamo, kao dar, poslao kralj Nepala. '
     , 100, 'g', 'lisnato povrće', 89.99),
   new Product(9, 'Blitva', 'Blitva, kao i drugo zeleno lisnato povrće, ima veoma hranljive listove, što je čini popularnom komponentom zdrave ishrane.[3] Blitva se koristila u kuvanju vekovima, ali pošto je ista vrsta kao i cvekla, i slična povrću kao što je artičoka, uobičajeni nazivi koje kuvari i kulture koriste za blitvu mogu biti zbunjujući'
@@ -48,7 +48,8 @@ export const voceCategories: string[] = [
 export const povrceCategories: string[] = [
   'mahunasto povrće',
   'lisnato povrće',
-  'korenasto povrće'
+  'korenasto povrće',
+  'krtolasto povrće'
 ];
 
 export const products: Product[] = [...voce, ...povrce];
