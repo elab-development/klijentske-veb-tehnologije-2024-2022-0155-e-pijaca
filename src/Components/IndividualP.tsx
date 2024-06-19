@@ -14,6 +14,7 @@ import spanac from '../assets/spanac.jpg';
 import blitva from '../assets/blitva.jpg';
 import krompir from '../assets/krompir.png';
 import sargarepa from '../assets/sargarepa.png';
+import { Link } from 'react-router-dom';
 
 interface IndividualProps{
     oneP: Product;
@@ -30,6 +31,7 @@ const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete,hideUnit
     return (
       <div>
         <div className='individual'>
+       
       {oneP.id===1 ? <img  src={borovnica} alt={oneP.ime} style={imageStyle} /> :
       oneP.id===2 ? <img  src={maline} alt={oneP.ime} style={imageStyle}/> :
       oneP.id===3 ? <img  src={limun} alt={oneP.ime} style={imageStyle}/> :
@@ -42,7 +44,10 @@ const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete,hideUnit
       oneP.id===10 ? <img  src={krompir} alt={oneP.ime} style={imageStyle}/> :
       oneP.id===11 ? <img  src={sargarepa} alt={oneP.ime} style={imageStyle}/> :
       oneP.id===12 ? <img  src={grasak} alt={oneP.ime} style={imageStyle}/>: <><p>Greska</p></> }
-      <p>{oneP.ime}</p>
+   <Link to={`/product/${oneP.id}`} style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
+  <p style={{ margin: 0 }}>{oneP.ime}</p>
+</Link>
+
       <div className="individual-desc">
       <span className="price">{oneP.cena}</span><br />
        {oneP.kolicina}{!hideUnit && oneP.jedinica}

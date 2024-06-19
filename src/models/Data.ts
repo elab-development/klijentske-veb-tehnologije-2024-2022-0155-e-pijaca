@@ -38,6 +38,14 @@ export const povrce: Product[] = [
     , 100, 'g', 'mahunasto povrće', 199.99)
 ];
 
+export const getFruitById = (id: number): Product | undefined => {
+  return voce.find(product => product.id === id);
+};
+
+export const getVegetableById = (id: number): Product | undefined => {
+  return povrce.find(product => product.id === id);
+}
+
 export const voceCategories: string[] = [
   'bobičasto voće',
   'jezgrasto voće',

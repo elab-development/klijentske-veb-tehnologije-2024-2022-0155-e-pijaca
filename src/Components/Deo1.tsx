@@ -8,9 +8,6 @@ const Deo1: React.FC = () => {
         <h2>Od Naših Polja do Vaše Porodice</h2>
       </div>
 
-      <div className="deo1-right">
-        
-      </div>
     </div>
   );
 }

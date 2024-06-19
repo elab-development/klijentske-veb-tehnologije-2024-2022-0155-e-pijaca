@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import LoginSignup from './Components/Prijava/LoginSignup';
 import Login from './Components/Prijava/Login';
 import Voce from './Components/Voce';
@@ -13,6 +13,7 @@ import useCart from './Components/UseCart';
 import { useEffect, useState } from 'react';
 import { proizvod, voce, povrce, voceCategories, povrceCategories, products } from './models/Data';
 import Recepti from './Components/Recepti';
+import ProductDetail from './Components/ProductDetail';
 
 function App() {
   const { cartNum, cartProducts, addToCart, deleteFromCart } = useCart(products);
@@ -70,45 +71,41 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <Router>
         <Navbar cartNum={cartNum} />
         <Routes>
-          <>
-            <Route
-              path='/'
-              element={<Home proizvod={proizvod} products={products} onAdd={addToCart} onDelete={deleteFromCart} />}
-            />
-            <Route
-              path='/voce'
-              element={
-                <div className='container'>
-                  <div className="category-filter">
-                   <CategoryFilter categories={voceCategories} selectedCategory={selectedVoceCategory} onSelectCategory={setSelectedVoceCategory} />
-                    <PriceRangeFilter selectedPriceRange={selectedVocePriceRange} onSelectPriceRange={setSelectedVocePriceRange} />
-                    </div>
-                  <Voce voce={filteredVoce} onAdd={addToCart} onDelete={deleteFromCart} resetCategory={resetVoceCategory} selectedCategory={selectedVoceCategory} selectedPriceRange={selectedVocePriceRange} resetPrice={resetVocePriceRange}/>
+          <Route path='/' element={<Home proizvod={proizvod} products={products} onAdd={addToCart} onDelete={deleteFromCart} />} />
+          <Route
+            path='/voce'
+            element={
+              <div className='container'>
+                <div className="category-filter">
+                  <CategoryFilter categories={voceCategories} selectedCategory={selectedVoceCategory} onSelectCategory={setSelectedVoceCategory} />
+                  <PriceRangeFilter selectedPriceRange={selectedVocePriceRange} onSelectPriceRange={setSelectedVocePriceRange} />
                 </div>
-              }
-            />
-            <Route
-              path='/povrce'
-              element={
-                <div className='container'>
-                  <div className="category-filter">
-                    <CategoryFilter categories={povrceCategories} selectedCategory={selectedPovrceCategory} onSelectCategory={setSelectedPovrceCategory} />
-                    <PriceRangeFilter selectedPriceRange={selectedPovrcePriceRange} onSelectPriceRange={setSelectedPovrcePriceRange} />
-                  </div>
-                  <Povrce povrce={filteredPovrce} onAdd={addToCart} onDelete={deleteFromCart} resetCategory={resetPovrceCategory} selectedCategory={selectedPovrceCategory} selectedPriceRange={selectedPovrcePriceRange} resetPrice={resetPovrcePriceRange} />
+                <Voce voce={filteredVoce} onAdd={addToCart} onDelete={deleteFromCart} resetCategory={resetVoceCategory} selectedCategory={selectedVoceCategory} selectedPriceRange={selectedVocePriceRange} resetPrice={resetVocePriceRange} />
+              </div>
+            }
+          />
+          <Route
+            path='/povrce'
+            element={
+              <div className='container'>
+                <div className="category-filter">
+                  <CategoryFilter categories={povrceCategories} selectedCategory={selectedPovrceCategory} onSelectCategory={setSelectedPovrceCategory} />
+                  <PriceRangeFilter selectedPriceRange={selectedPovrcePriceRange} onSelectPriceRange={setSelectedPovrcePriceRange} />
                 </div>
-              }
-            />
-            <Route path='/recepti' element={<Recepti />} />
-            <Route path='/signup' element={<LoginSignup />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/cart' element={<Cart proizvodi={cartProducts} onAdd={addToCart} onDelete={deleteFromCart} />} />
-          </>
+                <Povrce povrce={filteredPovrce} onAdd={addToCart} onDelete={deleteFromCart} resetCategory={resetPovrceCategory} selectedCategory={selectedPovrceCategory} selectedPriceRange={selectedPovrcePriceRange} resetPrice={resetPovrcePriceRange} />
+              </div>
+            }
+          />
+          <Route path='/recepti' element={<Recepti />} />
+          <Route path='/signup' element={<LoginSignup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/cart' element={<Cart proizvodi={cartProducts} onAdd={addToCart} onDelete={deleteFromCart} />} />
+          <Route path='/product/:id' element={<ProductDetail onAdd={addToCart} onDelete={deleteFromCart} proizvod={proizvod}/>} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
