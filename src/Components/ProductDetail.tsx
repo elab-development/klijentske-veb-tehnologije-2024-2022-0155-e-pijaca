@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { getFruitById, getVegetableById } from '../models/Data';
+import { getFruitById, getPopularById, getVegetableById } from '../models/Data';
 import  badem  from '../assets/badem.jpg';
 import orah from '../assets/orah.jpg';
 import grasak from '../assets/grasak.avif';
@@ -26,12 +26,12 @@ interface ProductDetailProps{
 
 const ProductDetail: React.FC <ProductDetailProps> = ({onAdd, onDelete, proizvod}) => {
   const { id } = useParams<{ id: string }>();
-  const productId = parseInt(id!); 
-
+  const productId = parseInt(id!);
   const fruit = getFruitById(productId);
   const vegetable = getVegetableById(productId);
+  const popular = getPopularById(productId);
 
-  const product = fruit || vegetable;
+  const product = fruit || vegetable || popular;
 
   if (!product) {
     return <div>Proizvod nije pronađen.</div>;
@@ -63,8 +63,9 @@ const ProductDetail: React.FC <ProductDetailProps> = ({onAdd, onDelete, proizvod
 </div>
 <Popular proizvod={proizvod} onAdd={onAdd} onDelete={onDelete}/>
 </div>
-  
+ 
   );
 };
+
 
 export default ProductDetail;

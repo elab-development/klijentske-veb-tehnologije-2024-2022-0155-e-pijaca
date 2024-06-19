@@ -1,30 +1,30 @@
-
 interface TipArtikla {
   id: number;
   ime: string;
+  opis: string;
+  kolicina: number;
+  jedinica:string;
+  family: string;
   cena: number;
-  količina: number;
-  jedinica: string;
 }
 
 class Proizvod implements TipArtikla {
   id: number;
   ime: string;
+  opis: string;
+  kolicina: number;
+  jedinica:string;
+  family: string;
   cena: number;
-  količina: number;
-  jedinica: string;
 
-  constructor(id: number, ime: string,  cena: number, količina: number, jedinica: string) {
+  constructor(id: number, ime: string, opis: string, kolicina: number,jedinica: string, family: string,cena: number) {
     this.id = id;
     this.ime = ime;
-    this.cena = cena;
-    this.količina = količina;
-    this.jedinica = jedinica;
-  }
-
-
-}
-
-
+    this.opis = opis;
+    this.kolicina = kolicina;
+    this.jedinica=jedinica;
+    this.family=family;
+    this.cena=cena;
+  }}
 
 export default Proizvod;

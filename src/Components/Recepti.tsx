@@ -5,7 +5,6 @@ import ReceptIndividual from './ReceptIndividual';
 import '../css/Recepti.css'
 
 
-
 const Recepti = () => {
     const [recepti, setRecept] = useState<Recept[]>([]);
 

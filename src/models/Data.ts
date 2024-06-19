@@ -2,14 +2,18 @@ import Proizvod from './Proizvod';
 import { Product } from './Product';
 
 export const proizvod: Proizvod[] = [
-  new Proizvod(1, 'Borovnica', 249.99, 150, 'g'),
-  new Proizvod(2, 'Maline', 199.99, 150, 'g'),
-  new Proizvod(3, 'Šargarepa', 79.99, 1, 'kg'),
-  new Proizvod(4, 'Krompir', 89.99, 1, 'kg')
+  new Proizvod(2, 'Maline', 'Malina spada u voće iz porodice ruža i može se naći nekoliko vrsta – crna, ljubičasta i zlatna, a najčešća je ona koju poznajemo i koristimo, crvena.  Aktivno učestvuju u zaštititi od dijabetesa, raka, gojaznosti, artritisa i drugih stanja, mogu da pomognu i u dijetalnim režimima ishrane, ali i da uspore starenje.'
+    , 150, 'g', 'bobičasto voće', 199.99),
+  new Proizvod(1, 'Borovnica', 'Borovnica ili crna borovnica, borovinka, borovnjača, crna jagoda, brusnica i mrča (lat. Vaccinium myrtillus)[1] je žbunasta biljka[2] iz porodice vresova (Ericaceae). Naučni naziv je izveden od latinskih reči bacca = bobica i myrtus (deminutiv myrtillus) po sličnosti listova sa biljkom mirtom.'
+    , 100, 'g', 'bobičasto voće', 249.99),
+    new Proizvod(10, 'Krompir', 'Krompir je bogat vitaminom C. Pomaže kod udaraca, opekotina, osteoporoze, poremećaja nerava, visokog pritiska i otoka.'
+      , 100, 'g', 'korenasto povrće', 109.99),
+    new Proizvod(11, 'Šargarepa', 'Šargarepa je bogata vitaminom A, C i B. Ima blagotvorno dejstvo na kožu. Konzumiranje šargarepe pojačava imuni sistem, poboljšava vid, pamćenje, štiti od upala i oboljenja srca i krvnih sudova.'
+      , 100, 'g', 'korenasto povrće', 64.99)
 ];
 
 export const voce: Product[] = [
-  new Product(2, 'Maline', 'U mnogim zemljama se plod koristi u naučnoj medicini kao sredstvo za izbacivanje tečnosti, kod proliva i ekcema. Ekstrakt iz ploda deluje protiv virusa. Pored toga on aktivira gušterača na lučenje insulina pa time snižava šećer u krvi. Koristi se i u prehrambenoj industriji.'
+  new Product(2, 'Maline', 'Malina spada u voće iz porodice ruža i može se naći nekoliko vrsta – crna, ljubičasta i zlatna, a najčešća je ona koju poznajemo i koristimo, crvena.  Aktivno učestvuju u zaštititi od dijabetesa, raka, gojaznosti, artritisa i drugih stanja, mogu da pomognu i u dijetalnim režimima ishrane, ali i da uspore starenje.'
     , 150, 'g', 'bobičasto voće', 199.99),
   new Product(1, 'Borovnica', 'Borovnica ili crna borovnica, borovinka, borovnjača, crna jagoda, brusnica i mrča (lat. Vaccinium myrtillus)[1] je žbunasta biljka[2] iz porodice vresova (Ericaceae). Naučni naziv je izveden od latinskih reči bacca = bobica i myrtus (deminutiv myrtillus) po sličnosti listova sa biljkom mirtom.'
     , 100, 'g', 'bobičasto voće', 249.99),
@@ -42,8 +46,12 @@ export const getFruitById = (id: number): Product | undefined => {
   return voce.find(product => product.id === id);
 };
 
+
 export const getVegetableById = (id: number): Product | undefined => {
   return povrce.find(product => product.id === id);
+}
+export const getPopularById = (id: number): Proizvod | undefined => {
+  return proizvod.find(product => product.id === id);
 }
 
 export const voceCategories: string[] = [

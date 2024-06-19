@@ -11,5 +11,4 @@ export class Recept  {
         this.image=image;
     }
  
- 
 }
