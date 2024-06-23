@@ -1,25 +1,16 @@
 import React, { useState } from 'react';
 import '../css/Navbar.css';
-
-
 import logo from '../assets/logo.png';
 import { FaShoppingCart } from "react-icons/fa";
 import { IoHome } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 
-
 interface NavbarProps{
   cartNum: number;
 }
 
-
-
-
 const Navbar: React.FC<NavbarProps> = ({cartNum}) => {
   const [menu, setMenu] = useState("none");
-
-
-
 
   return (
     <div className='navbar'>
@@ -59,8 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({cartNum}) => {
           </Link>
           {menu === "signup" ? <></> : <></>}
         </li>
-       
-       
+        
         <Link to='/cart' style={{ textDecoration: 'none', color: 'inherit' }}>
           <FaShoppingCart size="35" onClick={() => { setMenu("cart") }}/>
         </Link>
@@ -70,6 +60,5 @@ const Navbar: React.FC<NavbarProps> = ({cartNum}) => {
     </div>
   );
 }
-
 
 export default Navbar;

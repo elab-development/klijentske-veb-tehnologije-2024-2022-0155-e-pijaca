@@ -1,13 +1,9 @@
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { WeatherData } from '../models/Weather';
 
-
 const WeatherForecast: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +17,6 @@ const WeatherForecast: React.FC = () => {
         },
       
       };
-
 
       try {
         const response = await axios.request(options);
@@ -38,11 +33,9 @@ const WeatherForecast: React.FC = () => {
     fetchData();
   }, []);
 
-
   if (!weatherData) {
     return <div>Učitava se...</div>;
   }
-
 
   return (
     <div className="weather-forecast">

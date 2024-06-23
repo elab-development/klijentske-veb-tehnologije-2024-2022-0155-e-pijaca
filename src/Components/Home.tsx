@@ -18,11 +18,11 @@ interface HomeProps{
 
 
 const Home: React.FC <HomeProps>= ({proizvod , products, onAdd, onDelete}) => {
-  const [visibleProducts, setVisibleProducts] = useState(4);
+  const [visibleProducts, setVisibleProducts] = useState(3);
 
 
   const showMoreProducts = () => {
-    setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 4);
+    setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 3);
   };
 
 
@@ -45,15 +45,8 @@ const Home: React.FC <HomeProps>= ({proizvod , products, onAdd, onDelete}) => {
     )}
         <Popular proizvod={proizvod} onAdd={onAdd} onDelete={onDelete}/>
        
-
-
-
-
     </div>
   );
 }
-
-
-
 
 export default Home;

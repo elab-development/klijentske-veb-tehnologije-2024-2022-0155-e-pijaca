@@ -31,7 +31,4 @@ const Cart: React.FC<CartProps> = ({proizvodi , onAdd, onDelete}) => {
   )
 }
 
-
-
-
 export default Cart

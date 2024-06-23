@@ -22,10 +22,7 @@ interface IndividualProps{
     onDelete: (id: number) => void;
     hideUnit?: boolean;
 }
-
-
 const imageStyle = { width: '250px', height: '350px' };
-
 
 const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete,hideUnit}) => {
     return (
@@ -61,8 +58,5 @@ const IndividualP : React.FC<IndividualProps> = ({oneP, onAdd, onDelete,hideUnit
       </div>
     )
   }
-
-
-
 
 export default IndividualP
