@@ -1,9 +1,16 @@
 .korpa{
     display: flex;
-    flex-direction:  row;
+    flex-direction:  column;
     flex-wrap: wrap;
-    align-items: center;
     gap: 30px;
     margin-top: 30px;
     margin-left: 10%;
   }
+.proizvodi{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.profil-p p{
+  padding: 5px;
+}

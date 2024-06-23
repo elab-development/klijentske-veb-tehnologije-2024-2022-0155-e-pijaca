@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import { proizvod, voce, povrce, voceCategories, povrceCategories, products } from './models/Data';
 import Recepti from './Components/Recepti';
 import ProductDetail from './Components/ProductDetail';
+import UserProfile from './Components/UserProfile';
 
 function App() {
   const { cartNum, cartProducts, addToCart, deleteFromCart } = useCart(products);
@@ -102,6 +103,7 @@ function App() {
           <Route path='/recepti' element={<Recepti />} />
           <Route path='/signup' element={<LoginSignup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<UserProfile />} />
           <Route path='/cart' element={<Cart proizvodi={cartProducts} onAdd={addToCart} onDelete={deleteFromCart} />} />
           <Route path='/product/:id' element={<ProductDetail onAdd={addToCart} onDelete={deleteFromCart} proizvod={proizvod}/>} />
         </Routes>
